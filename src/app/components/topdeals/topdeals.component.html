@@ -1,0 +1,25 @@
+<div class="container w-75" routerLink="/category">
+<a class="cursor" style="float: right; text-decoration:underline;">View All</a>
+</div>
+
+<br>
+<br>
+<owl-carousel-o [options]="customOptions">
+
+  <ng-container *ngFor="let product of topdeals">
+    <ng-template carouselSlide [id]="product.id">
+      <div class="card cursor" style="width: 14rem;">
+        <img [src]="product.productImageSlug[0]" class="card-img-top" alt="" height="180" width="180">
+        <div class="card-body">
+          <h5 class="card-title txt-d">{{product.description}}</h5><br>
+          <p class="card-text fw-light">{{product.type}}</p>
+          <p class="mb-0">MRP= &nbsp;<span class="text-decoration-line-through">₹&nbsp;{{product.actualPrice}}</span>
+          </p>
+          <p>₹<span class="ms-2">{{product.discountPrice}}</span></p>
+          <a href="#" class="btn btn-primary">Add</a>
+        </div>
+      </div>
+    </ng-template>
+  </ng-container>
+
+</owl-carousel-o>
